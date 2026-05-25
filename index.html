@@ -4,22 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0a0a">
-  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Mis Hábitos">
   <title>Mis Hábitos</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
   <style>
     :root {
-      --bg: #0d0d0d;
-      --bg2: #1a1a1a;
-      --bg3: #242424;
-      --text: #f0f0f0;
-      --text2: #888;
-      --green: #1D9E75;
-      --green-dark: #0F6E56;
-      --amber: #EF9F27;
-      --border: rgba(255,255,255,0.08);
+      --bg: #0d0d0d; --bg2: #1a1a1a; --bg3: #242424;
+      --text: #f0f0f0; --text2: #888;
+      --green: #1D9E75; --green-dark: #0F6E56;
+      --amber: #EF9F27; --border: rgba(255,255,255,0.08);
       --radius: 12px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,9 +45,8 @@
     .circle-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
     .circle-pct { font-size: 24px; font-weight: 700; }
     .circle-sub { font-size: 11px; color: var(--text2); }
-    .habit-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: opacity 0.15s; }
+    .habit-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
     .habit-row:last-child { border-bottom: none; }
-    .habit-row:active { opacity: 0.7; }
     .habit-check { width: 30px; height: 30px; border-radius: 9px; border: 2px solid var(--bg3); background: var(--bg3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
     .habit-check.done { background: var(--green); border-color: var(--green); }
     .habit-check i { font-size: 16px; color: #fff; opacity: 0; transition: opacity 0.2s; }
@@ -67,7 +60,6 @@
     .monthly-view.show { display: block; }
     .month-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
     .month-grid { display: flex; flex-direction: column; gap: 4px; min-width: 520px; }
-    .habit-month-row { display: grid; align-items: center; gap: 3px; }
     .habit-month-name { font-size: 11px; color: var(--text2); text-align: right; padding-right: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .day-cell { width: 17px; height: 17px; border-radius: 4px; border: 1px solid var(--border); cursor: pointer; transition: all 0.15s; }
     .day-cell.done { background: var(--green); border-color: var(--green-dark); }
@@ -78,21 +70,10 @@
     .motivation { background: var(--green-dark); border-radius: var(--radius); padding: 1rem 1.25rem; margin-top: 1.5rem; }
     .motivation p { font-size: 14px; line-height: 1.6; color: #c8efe3; }
     .motivation .author { font-size: 12px; color: #9FE1CB; margin-top: 6px; }
-    .install-banner { display: none; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.875rem 1rem; margin-bottom: 1rem; }
-    .install-banner.show { display: flex; align-items: center; gap: 10px; }
-    .install-btn { background: var(--green); color: #fff; border: none; border-radius: 8px; padding: 6px 14px; font-size: 13px; cursor: pointer; white-space: nowrap; }
   </style>
 </head>
 <body>
 <div class="app">
-  <div class="install-banner" id="install-banner">
-    <div style="flex:1">
-      <div style="font-size:13px;font-weight:500">Instalar como app</div>
-      <div style="font-size:11px;color:var(--text2)">Accedé desde tu pantalla de inicio</div>
-    </div>
-    <button class="install-btn" id="install-btn">Instalar</button>
-  </div>
-
   <div class="header">
     <div class="month-label">Mayo 2026</div>
     <div class="view-toggle">
@@ -113,7 +94,7 @@
     </div>
     <div class="stat-card">
       <div class="stat-label">Hábitos</div>
-      <div class="stat-value" id="total-count">6</div>
+      <div class="stat-value">6</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Racha</div>
@@ -157,111 +138,92 @@
 </div>
 
 <script>
-const SUPABASE_URL = 'https://sdcyogmxiuyxhdojxcsb.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkY3lvZ214aXV5aHhkb2p4Y3NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2NTQ0MTgsImV4cCI6MjA5NTIzMDQxOH0.wVswZkbWz_wNxNTLZZMe8mBIElv4i7xutnHJ15R7PNw';
+const SB_URL = 'https://sdcyogmxiuyxhdojxcsb.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkY3lvZ214aXV5aHhkb2p4Y3NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2NTQ0MTgsImV4cCI6MjA5NTIzMDQxOH0.wVswZkbWz_wNxNTLZZMe8mBIElv4i7xutnHJ15R7PNw';
+const HEADERS = { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' };
 
 const HABITS = [
-  { id: 'leer', name: 'Leer / educarse', icon: 'ti-book', color: 'green' },
-  { id: 'videos', name: 'Editar / grabar video', icon: 'ti-video', color: 'green' },
-  { id: 'mkt', name: 'Marketing e IA', icon: 'ti-brain', color: 'amber' },
-  { id: 'ejercicio', name: 'Ejercicio', icon: 'ti-run', color: 'green' },
-  { id: 'redes', name: 'Sin redes sociales', icon: 'ti-device-mobile-off', color: 'amber' },
-  { id: 'planificar', name: 'Planificar el día', icon: 'ti-list-check', color: 'green' },
+  { id: 'leer',      name: 'Leer / educarse',       icon: 'ti-book',             color: 'green' },
+  { id: 'videos',    name: 'Editar / grabar video',  icon: 'ti-video',            color: 'green' },
+  { id: 'mkt',       name: 'Marketing e IA',         icon: 'ti-brain',            color: 'amber' },
+  { id: 'ejercicio', name: 'Ejercicio',              icon: 'ti-run',              color: 'green' },
+  { id: 'redes',     name: 'Sin redes sociales',     icon: 'ti-device-mobile-off',color: 'amber' },
+  { id: 'planificar',name: 'Planificar el día',      icon: 'ti-list-check',       color: 'green' },
 ];
 
 const TODAY = new Date();
 const DAY = TODAY.getDate();
 const DAYS = 31;
-const PAD = d => String(d).padStart(2,'0');
-const TODAY_STR = `2026-05-${PAD(DAY)}`;
-
+const pad = d => String(d).padStart(2, '0');
+const TODAY_STR = '2026-05-' + pad(DAY);
 let state = {};
-let deferredPrompt = null;
 
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById('install-banner').classList.add('show');
-});
-
-document.getElementById('install-btn').addEventListener('click', async () => {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  const { outcome } = await deferredPrompt.userChoice;
-  if (outcome === 'accepted') document.getElementById('install-banner').classList.remove('show');
-  deferredPrompt = null;
-});
-
-function setSyncStatus(status, text) {
-  const dot = document.getElementById('sync-dot');
-  const label = document.getElementById('sync-label');
-  dot.className = 'sync-dot' + (status === 'syncing' ? ' syncing' : status === 'error' ? ' error' : '');
-  label.textContent = text;
+function setSyncStatus(s, text) {
+  document.getElementById('sync-dot').className = 'sync-dot' + (s === 'syncing' ? ' syncing' : s === 'error' ? ' error' : '');
+  document.getElementById('sync-label').textContent = text;
 }
 
 async function fetchHabits() {
   setSyncStatus('syncing', 'Cargando hábitos...');
   try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/habitos?select=fecha,habit_id,completado`, {
-      headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY }
-    });
+    const url = SB_URL + '/rest/v1/habitos?select=fecha,habit_id,completado';
+    const res = await fetch(url, { headers: HEADERS });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     state = {};
-    data.forEach(row => { if (row.completado) state[`${row.fecha}_${row.habit_id}`] = true; });
+    data.forEach(r => { if (r.completado) state[r.fecha + '_' + r.habit_id] = true; });
     setSyncStatus('ok', 'Sincronizado ✓');
     renderAll();
   } catch(e) {
-    setSyncStatus('error', 'Sin conexión — reintentando...');
+    console.error('Fetch error:', e);
+    setSyncStatus('error', 'Error: ' + e.message);
     setTimeout(fetchHabits, 5000);
   }
 }
 
-async function upsertHabit(dateStr, habitId, val) {
+async function upsert(dateStr, habitId, val) {
   setSyncStatus('syncing', 'Guardando...');
   try {
-    await fetch(`${SUPABASE_URL}/rest/v1/habitos`, {
+    const url = SB_URL + '/rest/v1/habitos';
+    const res = await fetch(url, {
       method: 'POST',
-      headers: {
-        'apikey': SUPABASE_KEY,
-        'Authorization': 'Bearer ' + SUPABASE_KEY,
-        'Content-Type': 'application/json',
-        'Prefer': 'resolution=merge-duplicates'
-      },
+      headers: { ...HEADERS, 'Prefer': 'resolution=merge-duplicates' },
       body: JSON.stringify({ fecha: dateStr, habit_id: habitId, completado: val })
     });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     setSyncStatus('ok', 'Guardado ✓');
   } catch(e) {
-    setSyncStatus('error', 'Error al guardar');
+    setSyncStatus('error', 'Error al guardar: ' + e.message);
   }
 }
 
-function toggleHabit(habitId) {
-  const key = `${TODAY_STR}_${habitId}`;
+function toggleHabit(id) {
+  const key = TODAY_STR + '_' + id;
   state[key] = !state[key];
   renderAll();
-  upsertHabit(TODAY_STR, habitId, state[key]);
+  upsert(TODAY_STR, id, state[key]);
 }
 
-function toggleCell(habitId, day) {
+function toggleCell(id, day) {
   if (day > DAY) return;
-  const dateStr = `2026-05-${PAD(day)}`;
-  const key = `${dateStr}_${habitId}`;
+  const ds = '2026-05-' + pad(day);
+  const key = ds + '_' + id;
   state[key] = !state[key];
   renderAll();
-  upsertHabit(dateStr, habitId, state[key]);
+  upsert(ds, id, state[key]);
 }
 
 function renderStats() {
-  const done = HABITS.filter(h => state[`${TODAY_STR}_${h.id}`]).length;
-  const pct = Math.round((done / HABITS.length) * 100);
+  const done = HABITS.filter(h => state[TODAY_STR + '_' + h.id]).length;
+  const pct = Math.round(done / HABITS.length * 100);
   document.getElementById('done-count').textContent = done;
   document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('circle-pct').textContent = pct + '%';
   document.getElementById('circle-progress').style.strokeDashoffset = 289 - (pct / 100) * 289;
   let streak = 0;
   for (let d = DAY; d >= 1; d--) {
-    const ds = `2026-05-${PAD(d)}`;
-    if (HABITS.every(h => state[`${ds}_${h.id}`])) streak++;
+    const ds = '2026-05-' + pad(d);
+    if (HABITS.every(h => state[ds + '_' + h.id])) streak++;
     else break;
   }
   document.getElementById('streak-count').textContent = streak + ' 🔥';
@@ -269,7 +231,7 @@ function renderStats() {
 
 function renderDailyHabits() {
   document.getElementById('habits-list').innerHTML = HABITS.map(h => {
-    const done = state[`${TODAY_STR}_${h.id}`];
+    const done = !!state[TODAY_STR + '_' + h.id];
     return `<div class="habit-row" onclick="toggleHabit('${h.id}')">
       <div class="habit-check ${done ? 'done' : ''}"><i class="ti ti-check"></i></div>
       <div class="habit-icon"><i class="ti ${h.icon}"></i></div>
@@ -282,25 +244,23 @@ function renderDailyHabits() {
 }
 
 function renderMonthGrid() {
-  const dayNums = `<div style="display:grid;grid-template-columns:80px repeat(${DAYS},17px);gap:3px;margin-bottom:3px;">
-    <div></div>${Array.from({length:DAYS},(_,i)=>`<div class="day-num">${i+1}</div>`).join('')}
-  </div>`;
+  const dayNums = '<div style="display:grid;grid-template-columns:80px repeat(' + DAYS + ',17px);gap:3px;margin-bottom:3px;"><div></div>'
+    + Array.from({length:DAYS},(_,i) => '<div class="day-num">' + (i+1) + '</div>').join('') + '</div>';
   const rows = HABITS.map(h => {
-    const cells = Array.from({length:DAYS},(_,i) => {
-      const d = i+1;
-      const ds = `2026-05-${PAD(d)}`;
-      const done = state[`${ds}_${h.id}`];
+    const cells = Array.from({length:DAYS}, (_,i) => {
+      const d = i + 1;
+      const ds = '2026-05-' + pad(d);
+      const done = !!state[ds + '_' + h.id];
       const isToday = d === DAY;
       const isFuture = d > DAY;
       let cls = 'day-cell';
       if (done) cls += h.color === 'amber' ? ' done-amber' : ' done';
       if (isToday) cls += ' today-cell';
       if (isFuture) cls += ' future';
-      return `<div class="${cls}" onclick="toggleCell('${h.id}',${d})"></div>`;
+      return '<div class="' + cls + '" onclick="toggleCell(\'' + h.id + '\',' + d + ')"></div>';
     }).join('');
-    return `<div style="display:grid;grid-template-columns:80px repeat(${DAYS},17px);gap:3px;align-items:center;">
-      <div class="habit-month-name">${h.name}</div>${cells}
-    </div>`;
+    return '<div style="display:grid;grid-template-columns:80px repeat(' + DAYS + ',17px);gap:3px;align-items:center;">'
+      + '<div class="habit-month-name">' + h.name + '</div>' + cells + '</div>';
   }).join('');
   document.getElementById('month-grid').innerHTML = dayNums + rows;
 }
