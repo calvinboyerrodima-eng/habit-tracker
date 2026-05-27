@@ -38,28 +38,16 @@
     .progress-bar { height: 5px; background: var(--bg3); border-radius: 99px; margin-bottom: 1.5rem; overflow: hidden; }
     .progress-fill { height: 100%; background: var(--green); border-radius: 99px; transition: width 0.4s; }
     .section-title { font-size: 12px; color: var(--text2); margin-bottom: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
-    .section-block { margin-bottom: 1.5rem; }
-
-    /* VIEWS */
-    .daily-view { display: none; }
-    .daily-view.show { display: block; }
-    .monthly-view { display: none; }
-    .monthly-view.show { display: block; }
-    .watchlist-view { display: none; }
-    .watchlist-view.show { display: block; }
-
-    /* CIRCLE */
+    .daily-view { display: none; } .daily-view.show { display: block; }
+    .monthly-view { display: none; } .monthly-view.show { display: block; }
+    .watchlist-view { display: none; } .watchlist-view.show { display: block; }
     .circle-wrap { position: relative; width: 100px; height: 100px; margin: 0 auto 1.25rem; }
     .circle-wrap svg { transform: rotate(-90deg); }
     .circle-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
     .circle-pct { font-size: 22px; font-weight: 700; }
     .circle-sub { font-size: 11px; color: var(--text2); }
-
-    /* HABITS */
     .habit-row { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
     .habit-row:last-child { border-bottom: none; }
-    .habit-row.sunday-only { opacity: 0.5; }
-    .habit-row.sunday-only.today-active { opacity: 1; }
     .habit-check { width: 28px; height: 28px; border-radius: 8px; border: 2px solid var(--bg3); background: var(--bg3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
     .habit-check.done { background: var(--green); border-color: var(--green); }
     .habit-check i { font-size: 15px; color: #fff; opacity: 0; transition: opacity 0.2s; }
@@ -69,9 +57,7 @@
     .habit-name { font-size: 14px; font-weight: 500; }
     .habit-name.done { text-decoration: line-through; color: var(--text2); }
     .habit-sub { font-size: 11px; color: var(--text2); margin-top: 1px; }
-    .badge-sunday { font-size: 9px; background: var(--bg3); color: var(--text2); padding: 1px 6px; border-radius: 99px; margin-left: 6px; vertical-align: middle; }
-
-    /* MONTH GRID */
+    .badge-sunday { font-size: 9px; background: var(--bg3); color: var(--text2); padding: 1px 6px; border-radius: 99px; margin-left: 6px; }
     .month-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
     .month-grid { display: flex; flex-direction: column; gap: 3px; min-width: 560px; }
     .habit-month-name { font-size: 10px; color: var(--text2); text-align: right; padding-right: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -82,12 +68,10 @@
     .day-cell.future { opacity: 0.15; cursor: default; }
     .day-cell.disabled { opacity: 0.1; cursor: default; }
     .day-num { font-size: 8px; color: var(--text2); text-align: center; width: 16px; }
-
-    /* WATCHLIST */
     .add-video-row { display: flex; gap: 8px; margin-bottom: 1rem; }
     .add-video-input { flex: 1; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; color: var(--text); font-size: 14px; outline: none; }
     .add-video-input:focus { border-color: var(--green); }
-    .add-video-btn { background: var(--green); color: #fff; border: none; border-radius: 8px; padding: 9px 14px; cursor: pointer; font-size: 13px; white-space: nowrap; }
+    .add-video-btn { background: var(--green); color: #fff; border: none; border-radius: 8px; padding: 9px 14px; cursor: pointer; font-size: 13px; }
     .video-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
     .video-item:last-child { border-bottom: none; }
     .video-check { width: 26px; height: 26px; border-radius: 7px; border: 2px solid var(--bg3); background: var(--bg3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; cursor: pointer; transition: all 0.2s; }
@@ -97,10 +81,9 @@
     .video-title { flex: 1; font-size: 14px; }
     .video-title.watched { text-decoration: line-through; color: var(--text2); }
     .video-delete { background: none; border: none; color: var(--text2); cursor: pointer; font-size: 16px; padding: 4px; opacity: 0.5; }
-    .video-delete:hover { opacity: 1; color: #E24B4A; }
     .empty-state { text-align: center; padding: 2rem 0; color: var(--text2); font-size: 14px; }
-
-    /* MOTIVATION */
+    .notif-banner { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.875rem 1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+    .notif-btn { background: var(--green); color: #fff; border: none; border-radius: 8px; padding: 6px 14px; font-size: 13px; cursor: pointer; white-space: nowrap; }
     .motivation { background: var(--green-dark); border-radius: var(--radius); padding: 1rem 1.25rem; margin-top: 1.5rem; }
     .motivation p { font-size: 13px; line-height: 1.6; color: #c8efe3; }
     .motivation .author { font-size: 11px; color: #9FE1CB; margin-top: 6px; }
@@ -108,6 +91,15 @@
 </head>
 <body>
 <div class="app">
+
+  <div id="notif-banner" class="notif-banner" style="display:none">
+    <div style="flex:1">
+      <div style="font-size:13px;font-weight:500">🔔 Activar recordatorios</div>
+      <div style="font-size:11px;color:var(--text2)">Te avisamos a las 8am, 1pm y 9pm</div>
+    </div>
+    <button class="notif-btn" onclick="requestNotifPermission()">Activar</button>
+  </div>
+
   <div class="header">
     <div class="month-label">Mayo 2026</div>
     <div class="view-toggle">
@@ -123,25 +115,13 @@
   </div>
 
   <div class="stats-row">
-    <div class="stat-card">
-      <div class="stat-label">Hoy</div>
-      <div class="stat-value green" id="done-count">—</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Total</div>
-      <div class="stat-value" id="total-count">—</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Racha</div>
-      <div class="stat-value amber" id="streak-count">0 🔥</div>
-    </div>
+    <div class="stat-card"><div class="stat-label">Hoy</div><div class="stat-value green" id="done-count">—</div></div>
+    <div class="stat-card"><div class="stat-label">Total</div><div class="stat-value" id="total-count">—</div></div>
+    <div class="stat-card"><div class="stat-label">Racha</div><div class="stat-value amber" id="streak-count">0 🔥</div></div>
   </div>
 
-  <div class="progress-bar">
-    <div class="progress-fill" id="progress-fill" style="width:0%"></div>
-  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
 
-  <!-- DAILY VIEW -->
   <div class="daily-view show" id="daily-view">
     <div style="text-align:center;margin-bottom:1.25rem;">
       <div class="circle-wrap">
@@ -164,24 +144,18 @@
     </div>
   </div>
 
-  <!-- MONTHLY VIEW -->
   <div class="monthly-view" id="monthly-view">
     <div class="section-title">Mayo — toca cualquier celda para marcar</div>
-    <div class="month-scroll">
-      <div class="month-grid" id="month-grid"></div>
-    </div>
+    <div class="month-scroll"><div class="month-grid" id="month-grid"></div></div>
   </div>
 
-  <!-- WATCHLIST VIEW -->
   <div class="watchlist-view" id="watchlist-view">
-    <div class="section-block">
-      <div class="section-title">Videos para ver después</div>
-      <div class="add-video-row">
-        <input class="add-video-input" id="video-input" placeholder="Título o descripción del video..." onkeydown="if(event.key==='Enter')addVideo()">
-        <button class="add-video-btn" onclick="addVideo()">+ Agregar</button>
-      </div>
-      <div id="video-list"></div>
+    <div class="section-title">Videos para ver después</div>
+    <div class="add-video-row">
+      <input class="add-video-input" id="video-input" placeholder="Título del video..." onkeydown="if(event.key==='Enter')addVideo()">
+      <button class="add-video-btn" onclick="addVideo()">+ Agregar</button>
     </div>
+    <div id="video-list"></div>
   </div>
 </div>
 
@@ -189,10 +163,10 @@
 const SB_URL = 'https://sdcyogmxiuyhxdojxcsb.supabase.co';
 const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNkY3lvZ214aXV5aHhkb2p4Y3NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2NTQ0MTgsImV4cCI6MjA5NTIzMDQxOH0.wVswZkbWz_wNxNTLZZMe8mBIElv4i7xutnHJ15R7PNw';
 const HEADERS = { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Content-Type': 'application/json' };
+const VAPID_PUBLIC = 'BFn-sFNzkDEWkWN6fvYcimbD2txShbmOXTucSR1tdqGhOp5Yk9EaJLOOCWPDtn1nQp3Xz8xj93LzanDqRtQxtvY';
 
 const TODAY = new Date();
 const DAY = TODAY.getDate();
-const DOW = TODAY.getDay(); // 0=domingo
 const DAYS = 31;
 const pad = d => String(d).padStart(2,'0');
 const TODAY_STR = '2026-05-' + pad(DAY);
@@ -213,14 +187,8 @@ const HABITS = [
 let state = {};
 let videos = JSON.parse(localStorage.getItem('calvin_videos') || '[]');
 
-function isSunday(day) {
-  const d = new Date(2026, 4, day);
-  return d.getDay() === 0;
-}
-
-function getActiveHabits(day) {
-  return HABITS.filter(h => h.days === 'all' || (h.days === 'sunday' && isSunday(day)));
-}
+function isSunday(day) { return new Date(2026, 4, day).getDay() === 0; }
+function getActiveHabits(day) { return HABITS.filter(h => h.days === 'all' || (h.days === 'sunday' && isSunday(day))); }
 
 function setSyncStatus(s, text) {
   document.getElementById('sync-dot').className = 'sync-dot' + (s==='syncing'?' syncing':s==='error'?' error':'');
@@ -288,24 +256,22 @@ function renderStats() {
   let streak = 0;
   for (let d = DAY; d >= 1; d--) {
     const ds = '2026-05-' + pad(d);
-    const act = getActiveHabits(d);
-    if (act.every(h => state[ds + '_' + h.id])) streak++;
+    if (getActiveHabits(d).every(h => state[ds + '_' + h.id])) streak++;
     else break;
   }
   document.getElementById('streak-count').textContent = streak + ' 🔥';
 }
 
 function renderDailyHabits() {
-  const active = getActiveHabits(DAY);
   document.getElementById('habits-list').innerHTML = HABITS.map(h => {
     const isActive = h.days === 'all' || (h.days === 'sunday' && isSunday(DAY));
     const done = !!state[TODAY_STR + '_' + h.id];
     const sundayTag = h.days === 'sunday' ? '<span class="badge-sunday">Domingos</span>' : '';
-    return `<div class="habit-row ${!isActive ? 'sunday-only' : ''}" onclick="toggleHabit('${h.id}')">
-      <div class="habit-check ${done ? 'done' : ''}"><i class="ti ti-check"></i></div>
+    return `<div class="habit-row" onclick="toggleHabit('${h.id}')">
+      <div class="habit-check ${done?'done':''}"><i class="ti ti-check"></i></div>
       <div class="habit-icon"><i class="ti ${h.icon}"></i></div>
       <div class="habit-info">
-        <div class="habit-name ${done ? 'done' : ''}">${h.name}${sundayTag}</div>
+        <div class="habit-name ${done?'done':''}">${h.name}${sundayTag}</div>
         <div class="habit-sub">${!isActive ? 'Solo domingos' : done ? '¡Completado hoy!' : 'Pendiente'}</div>
       </div>
     </div>`;
@@ -317,16 +283,14 @@ function renderMonthGrid() {
     + Array.from({length:DAYS},(_,i)=>'<div class="day-num">'+(i+1)+'</div>').join('') + '</div>';
   const rows = HABITS.map(h => {
     const cells = Array.from({length:DAYS},(_,i) => {
-      const d = i+1;
-      const ds = '2026-05-'+pad(d);
+      const d = i+1, ds = '2026-05-'+pad(d);
       const done = !!state[ds+'_'+h.id];
-      const isToday = d===DAY, isFuture = d>DAY;
       const isDisabled = h.days==='sunday' && !isSunday(d);
       let cls = 'day-cell';
       if (isDisabled) cls += ' disabled';
       else if (done) cls += h.color==='amber' ? ' done-amber' : ' done';
-      if (isToday && !isDisabled) cls += ' today-cell';
-      if (isFuture) cls += ' future';
+      if (d===DAY && !isDisabled) cls += ' today-cell';
+      if (d>DAY) cls += ' future';
       return '<div class="'+cls+'" onclick="toggleCell(\''+h.id+'\','+d+')"></div>';
     }).join('');
     return '<div style="display:grid;grid-template-columns:85px repeat('+DAYS+',16px);gap:3px;align-items:center;">'
@@ -337,53 +301,40 @@ function renderMonthGrid() {
 
 // WATCHLIST
 function saveVideos() { localStorage.setItem('calvin_videos', JSON.stringify(videos)); }
-
 function addVideo() {
   const input = document.getElementById('video-input');
   const title = input.value.trim();
   if (!title) return;
-  videos.unshift({ id: Date.now(), title, watched: false, date: TODAY_STR });
-  saveVideos();
-  input.value = '';
-  renderVideos();
+  videos.unshift({ id: Date.now(), title, watched: false });
+  saveVideos(); input.value = ''; renderVideos();
 }
-
 function toggleVideo(id) {
   const v = videos.find(v => v.id === id);
   if (v) { v.watched = !v.watched; saveVideos(); renderVideos(); }
 }
-
 function deleteVideo(id) {
   videos = videos.filter(v => v.id !== id);
-  saveVideos();
-  renderVideos();
+  saveVideos(); renderVideos();
 }
-
 function renderVideos() {
   const list = document.getElementById('video-list');
-  if (!videos.length) {
-    list.innerHTML = '<div class="empty-state">Nada por ver todavía.<br>Agrega videos que quieras recordar.</div>';
-    return;
-  }
+  if (!videos.length) { list.innerHTML = '<div class="empty-state">Nada por ver todavía.<br>Agrega videos que quieras recordar.</div>'; return; }
   const pending = videos.filter(v => !v.watched);
   const watched = videos.filter(v => v.watched);
-  let html = '';
-  if (pending.length) {
-    html += pending.map(v => videoRow(v)).join('');
-  }
+  let html = pending.map(v => `<div class="video-item">
+    <div class="video-check ${v.watched?'watched':''}" onclick="toggleVideo(${v.id})"><i class="ti ti-check"></i></div>
+    <div class="video-title">${v.title}</div>
+    <button class="video-delete" onclick="deleteVideo(${v.id})"><i class="ti ti-trash"></i></button>
+  </div>`).join('');
   if (watched.length) {
-    html += '<div style="font-size:11px;color:var(--text2);margin:12px 0 6px;text-transform:uppercase;letter-spacing:0.05em;">Ya vistos</div>';
-    html += watched.map(v => videoRow(v)).join('');
+    html += '<div style="font-size:11px;color:var(--text2);margin:12px 0 6px;text-transform:uppercase;">Ya vistos</div>';
+    html += watched.map(v => `<div class="video-item">
+      <div class="video-check watched" onclick="toggleVideo(${v.id})"><i class="ti ti-check"></i></div>
+      <div class="video-title watched">${v.title}</div>
+      <button class="video-delete" onclick="deleteVideo(${v.id})"><i class="ti ti-trash"></i></button>
+    </div>`).join('');
   }
   list.innerHTML = html;
-}
-
-function videoRow(v) {
-  return `<div class="video-item">
-    <div class="video-check ${v.watched?'watched':''}" onclick="toggleVideo(${v.id})"><i class="ti ti-check"></i></div>
-    <div class="video-title ${v.watched?'watched':''}">${v.title}</div>
-    <button class="video-delete" onclick="deleteVideo(${v.id})"><i class="ti ti-trash"></i></button>
-  </div>`;
 }
 
 function renderAll() { renderStats(); renderDailyHabits(); renderMonthGrid(); renderVideos(); }
@@ -397,7 +348,47 @@ function switchView(view) {
   });
 }
 
+// PUSH NOTIFICATIONS
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const rawData = window.atob(base64);
+  return new Uint8Array([...rawData].map(char => char.charCodeAt(0)));
+}
+
+async function initNotifications() {
+  if (!('serviceWorker' in navigator) || !('PushManager' in window)) return;
+  if (Notification.permission === 'default') {
+    document.getElementById('notif-banner').style.display = 'flex';
+  }
+  try {
+    const reg = await navigator.serviceWorker.register('/habit-tracker/sw.js');
+    const existing = await reg.pushManager.getSubscription();
+    if (existing) { document.getElementById('notif-banner').style.display = 'none'; }
+  } catch(e) { console.log('SW error:', e); }
+}
+
+async function requestNotifPermission() {
+  const permission = await Notification.requestPermission();
+  if (permission !== 'granted') return;
+  try {
+    const reg = await navigator.serviceWorker.ready;
+    const sub = await reg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC)
+    });
+    await fetch(SB_URL + '/rest/v1/push_subscriptions', {
+      method: 'POST',
+      headers: HEADERS,
+      body: JSON.stringify({ subscription: sub })
+    });
+    document.getElementById('notif-banner').style.display = 'none';
+    document.getElementById('sync-label').textContent = '🔔 Notificaciones activadas ✓';
+  } catch(e) { console.error('Push error:', e); }
+}
+
 fetchHabits();
+initNotifications();
 </script>
 </body>
 </html>
